@@ -26,7 +26,7 @@ module.exports = function(grunt) {
 				// Notice the angle-bracketed ERB-like templating,
 				// which allows you to reference other properties.
 				// This is equivalent to 'dist/main.js'.
-				dest: '<%= distFolder %>/listview.js'
+				dest: '<%= distFolder %>/lautarobock-ng-util.js'
 				// You can reference any grunt config property you want.
 				// Ex: '<%= concat.options.separator %>' instead of ';'
 			}
@@ -37,7 +37,7 @@ module.exports = function(grunt) {
 		    },
 		    my_target: {
 				files: {
-					'dist/listview.min.js': ['dist/listview.js']
+					'dist/lautarobock-ng-util.min.js': ['dist/lautarobock-ng-util.js']
 				}
 		    }
 		},

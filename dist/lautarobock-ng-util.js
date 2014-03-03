@@ -1,6 +1,6 @@
 (function() {
 
-    var listview = angular.module("gt.listview", ['gt.listview.templates']);
+    var listview = angular.module("gt.listview", ['gt.listview.tpls']);
 
     /**
     * Doc
