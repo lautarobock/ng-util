@@ -172,7 +172,7 @@
         };
     });
 
-})();;angular.module('gt.listview.tpls').run(['$templateCache', function($templateCache) {
+})();;angular.module('[object Object]').run(['$templateCache', function($templateCache) {
   'use strict';
 
   $templateCache.put('listview-filter-combo.html',

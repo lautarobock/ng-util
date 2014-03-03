@@ -45,7 +45,15 @@ module.exports = function(grunt) {
 			'gt.listview.tpls': {
 				cwd: 'html',
 				src: '*.html',
-				dest: 'js/templates.js'
+				dest: 'js/templates.js',
+				options:{
+					bootstrap:  function(module, script) {
+						return '' +
+							' 	angular.module("gt.listview.tpls", []).run(["$templateCache", function($templateCache) { ' + 
+							script + 
+							'	}]);';
+					}
+				}
 			}
 		},
 		karma: {

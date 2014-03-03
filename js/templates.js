@@ -1,5 +1,4 @@
-angular.module('gt.listview.tpls').run(['$templateCache', function($templateCache) {
-  'use strict';
+ 	angular.module("gt.listview.tpls", []).run(["$templateCache", function($templateCache) {   'use strict';
 
   $templateCache.put('listview-filter-combo.html',
     "<div class=\"col-sm-{{filter.colSpan||listviewConfig.filterColSpan||'12'}}\" style=\"margin-bottom: 1em;\">\n" +
@@ -112,5 +111,4 @@ angular.module('gt.listview.tpls').run(['$templateCache', function($templateCach
     "    </div>\n" +
     "</div>"
   );
-
-}]);
+	}]);
