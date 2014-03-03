@@ -44,7 +44,7 @@ module.exports = function(grunt) {
 		ngtemplates: {
 			'gt.listview.tpls': {
 				cwd: 'html',
-				src: '*.html',
+				src: 'listview/*.html',
 				dest: 'js/templates.js',
 				options:{
 					bootstrap:  function(module, script) {
