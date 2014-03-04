@@ -5,12 +5,12 @@
     form.run(['$templateCache',function($templateCache) {
         $templateCache.put("form/input-text.html",
             '<label tooltip="{{dlTooltip}}" tooltip-placement="right" for="{{id}}" class="control-label">{{caption}}</label>' + 
-            '<input focus-on="{{id}}" type="text" ng-model="value" class="form-control" id="{{id}}" placeholder="{{placeholder}}">'
+            '<input focus-on="{{id}}" type="text" ng-model="value" class="form-control" ng-class="sizeClass" id="{{id}}" placeholder="{{placeholder}}">'
         );
         
         $templateCache.put("form/input-numeric.html",
             '<label tooltip="{{dlTooltip}}" tooltip-placement="right" for="{{id}}" class="control-label">{{caption}}</label>' + 
-            '<input type="number" step="{{step}}" ng-model="value" class="form-control" id="{{id}}" placeholder="{{placeholder}}">'
+            '<input type="number" step="{{step}}" ng-model="value" class="form-control" ng-class="sizeClass" id="{{id}}" placeholder="{{placeholder}}">'
         );
     }]);
 
@@ -22,9 +22,16 @@
                 value: '=',
                 caption: '@',
                 dlTooltip: '@',
-                placeholder: '@'
+                placeholder: '@',
+                size: '@?'
             },
-            templateUrl: 'form/input-text.html'
+            templateUrl: 'form/input-text.html',
+            link: function(scope) {
+                scope.sizeClass = '';
+                if ( scope.size ) {
+                    scope.sizeClass = 'input-'+scope.size;
+                }
+            }
         };
     });
 
@@ -37,9 +44,16 @@
                 caption: '@',
                 step: '@',
                 dlTooltip: '@',
-                placeholder: '@'
+                placeholder: '@',
+                size: '@?'
             },
-            templateUrl: 'form/input-numeric.html'
+            templateUrl: 'form/input-numeric.html',
+            link: function(scope) {
+                scope.sizeClass = '';
+                if ( scope.size ) {
+                    scope.sizeClass = 'input-'+scope.size;
+                }
+            }
         };
     });
 
