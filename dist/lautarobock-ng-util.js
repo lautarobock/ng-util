@@ -89,6 +89,12 @@
             controller: ['$scope', '$interpolate', '$timeout',function($scope, $interpolate, $timeout) {
                 $scope.listviewConfig = $scope.listviewConfig || {};
 
+                $scope.listviewConfig.control = {
+                    refresh: function() {
+                        searchWithFilters();
+                    }
+                };
+
                 $scope.pluralization = {
                     '0':'No se ha encontrado ningun resultado con su busqueda',
                     'one': '1 ' +($scope.listviewConfig.singular||'')+ ' encontrada',
