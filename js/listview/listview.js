@@ -83,11 +83,12 @@
                 }
 
                 $scope.clearSearch = function() {
-                    $scope.searchCriteria = ""
+                    // $scope.searchCriteria = ""
+                    $scope.listviewConfig.searchCriteria = '';
                     delete query["filter[searchCriteria]"];
                     // delete query["filter[name][$options]"];
-                    reloadCount();
-                    reload();
+                    // reloadCount();
+                    // reload();
                 };
 
                 $scope.clearFilter = function(filter,filterName) {
