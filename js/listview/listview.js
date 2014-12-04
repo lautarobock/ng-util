@@ -50,7 +50,11 @@
 
                 //Search
                 //SearchCriteria will be change for advanced text filter
-                $scope.searchCriteria = $scope.listviewConfig.searchCriteria || '';
+                // $scope.searchCriteria = $scope.listviewConfig.searchCriteria || '';
+                $scope.$watch('listviewConfig.searchCriteria', function(value) {
+                    $scope.searchCriteria = value;
+                    $scope.search();
+                });
                 var activeTimeout = null;
                 
                 $scope.search = function() {
