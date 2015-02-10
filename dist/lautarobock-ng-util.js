@@ -284,7 +284,7 @@
                         return localStorage.getItem(key)||defaultValue;
                     },
                     getInt: function(key, defaultValue) {
-                        return parseInt(localStorage.getItem(key, defaultValue));
+                        return parseInt(localStorage.getItem(key)||defaultValue);
                     },
                     remove: function(key) {
                         localStorage.removeItem(key);
