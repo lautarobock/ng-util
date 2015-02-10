@@ -60,6 +60,14 @@
                         }
                     }
 
+                    function setPageSize(value) {
+                        if ( $scope.listviewConfig.name ) {
+                            return Storage.set('listviewConfig.pageSize.' + $scope.listviewConfig.name, value);
+                        } else {
+                            return Storage.set('listviewConfig.pageSize', value);
+                        }
+                    }
+
                     //Pagination
                     $scope.pagination = {
                         pageSize: $scope.listviewConfig.pageSize || getPageSize(),
@@ -103,7 +111,7 @@
                         }
                         var filters = [];
                         angular.forEach($scope.listviewFilter,function(filter,field) {
-                            if (filter.type != 'list' && filter.value || (filter.type == 'list' && filter.value && filter.value.length != 0) ) {
+                            if (filter.type !== 'list' && filter.value || (filter.type === 'list' && filter.value && filter.value.length !== 0) ) {
                                 query["filter"+field] = filter.value;
                             }
                         });
@@ -126,12 +134,12 @@
                         delete query["filter"+filterName];
                         reloadCount();
                         reload();
-                    }
+                    };
 
 
-                    if ( $scope.listviewSort
-                            && $scope.listviewSort.combo
-                            && $scope.listviewSort.combo.length != 0 ) {
+                    if ( $scope.listviewSort &&
+                            $scope.listviewSort.combo &&
+                            $scope.listviewSort.combo.length !== 0 ) {
                         query.sort = $scope.listviewSort.combo[0].sort;
                     } else {
                         query.sort = $scope.listviewHeader[0].field;
@@ -140,8 +148,9 @@
                     $scope.changePageSize = function() {
                         $scope.pagination.page = 1;
                         query.skip = 0;
-                        query.limit = $scope.pagination.pageSize,
+                        query.limit = $scope.pagination.pageSize;
                         searchWithFilters();
+                        setPageSize($scope.pagination.pageSize);
                     };
                     $scope.$watch("pagination.page", function(page, old) {
                         if ( page && old ) {
